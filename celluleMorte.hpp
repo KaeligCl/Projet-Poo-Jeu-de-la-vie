@@ -5,8 +5,4 @@ class celluleMorte : public cellule
 {
     public:
     celluleMorte();
-    virtual bool update() override
-    {
-        
-    }
 };
