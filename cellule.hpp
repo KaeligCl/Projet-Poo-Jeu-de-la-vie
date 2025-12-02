@@ -5,7 +5,9 @@ class Cellule
 protected:
     const bool estVivant;
 public :
-    Cellule(const bool estVivant) : estVivant(estVivant) {}
-    bool getEstVivant() const { return estVivant; }
+    Cellule(bool vivant) : estVivant(vivant) {} 
+    virtual bool getEstVivant() const = 0;
+    virtual ~Cellule() {}
 };
+
 
