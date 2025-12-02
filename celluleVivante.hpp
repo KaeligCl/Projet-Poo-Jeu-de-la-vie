@@ -1,12 +1,9 @@
 #pragma once
 #include "cellule.hpp"
 
-class celluleVivante : public cellule
+class celluleVivante : public Cellule
 {
-private:
-    const bool estVivant = true;
-
 public:
-    celluleVivante();
+    celluleVivante() : Cellule(true) {}
 };
 
