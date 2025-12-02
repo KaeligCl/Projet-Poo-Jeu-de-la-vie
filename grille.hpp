@@ -1,5 +1,5 @@
 #pragma once
-#include "cellule.hpp"
+#include "celluleVivante.hpp"
 #include <vector>
 using namespace std;
 
@@ -9,7 +9,8 @@ private:
     celluleVivante tableauCelllules[[]];
 public:
     grille(int l, int L);
-    int getCellule(int x,int y);
-    void setCellule(int x, int y);
+    int gettableauCellules(int x,int y);
+    void settableauCellules(int x, int y);
 };
+
 
