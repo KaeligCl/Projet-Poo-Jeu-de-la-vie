@@ -2,14 +2,14 @@
 
 class cellule
 {
-private:
+protected:
     bool estVivant;
-    bool next;
+    bool next; //état suivant
 public :
-    Cellule(bool estVivant, bool next) : estVivant(estVivant), next(next) {}
-    bool getEstVivant() { return estVivant; }
-    bool getNext() {  return next; }
-    void setEstVivant(bool estVivant) { estVivant = estVivant; }
-    void setNext(bool next) { next = next; }
-    bool update();
+    cellule(bool estVivant, bool next) : estVivant(estVivant), next(next) {}
+    bool getEstVivant() const { return estVivant; }
+    bool getNext() const {  return next; }
+    void setEstVivant(bool estVivant) { this -> estVivant = estVivant; }
+    void setNext(bool next) { this -> next = next; }
+    virtual bool update() = 0;
 };
