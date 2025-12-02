@@ -3,6 +3,8 @@
 
 class celluleMorte : public cellule
 {
-    public:
+private:
+    const bool estVivant = false;
+public:
     celluleMorte();
 };
