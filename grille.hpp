@@ -6,12 +6,13 @@ using namespace std;
 class grille
 {
 private:
-    vector<vector<shared_ptr<Cellule>>> mat;;
+    vector<vector<shared_ptr<Cellule>>> tableauCellules;
 public:
     grille(int l, int L);
     int gettableauCellules(int x,int y);
     void settableauCellules(int x, int y);
 };
+
 
 
 
