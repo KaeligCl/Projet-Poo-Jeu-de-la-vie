@@ -1,5 +1,5 @@
 #pragma once
-#include "celluleVivante.hpp"
+#include "cellule.hpp"
 #include <vector>
 using namespace std;
 
@@ -9,9 +9,10 @@ private:
     vector<vector<shared_ptr<Cellule>>> tableauCellules;
 public:
     grille(int l, int L);
-    int gettableauCellules(int x,int y);
-    void settableauCellules(int x, int y);
+    int getCellule(int x,int y);
+    void setCellule(int x, int y);
 };
+
 
 
 
