@@ -3,7 +3,10 @@
 
 class celluleVivante : public cellule
 {
-    public:
+private:
+    const bool estVivant = true;
+
+public:
     celluleVivante();
 };
 
