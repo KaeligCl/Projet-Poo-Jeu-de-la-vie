@@ -4,7 +4,7 @@
 class celluleMorte : public Cellule
 {
 public:
-    celluleMorte() : Cellule(false) {}
+    celluleMorte() : Cellule(false, false) {}
     
     bool getEstVivant() const override {
         return this->estVivant;

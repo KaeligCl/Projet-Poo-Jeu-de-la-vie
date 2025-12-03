@@ -1,5 +1,6 @@
 #pragma once
-#include "cellule.hpp"
+#include "celluleVivante.hpp"
+#include "celluleMorte.hpp"
 #include <memory>
 #include <vector>
 using namespace std;
@@ -11,11 +12,11 @@ private:
 public:
     grille() : tableauCellules(0) {}
     grille(int l, int L);
-    shared_ptr<Cellule> getCellule(int x,int y);
-    void setCellule(int x, int y, bool e);
+    shared_ptr<Cellule> getCellule(int x,int y) const ;
+    void setCellule(int x, int y, shared_ptr<Cellule> c);
     int compterVoisinsVivants(int x, int y);
-    int getHauteur();
-    int getLargeur();
+    int getHauteur() const ;
+    int getLargeur()const ;
 
 };
 
