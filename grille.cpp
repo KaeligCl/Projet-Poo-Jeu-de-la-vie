@@ -11,8 +11,8 @@ grille::grille(int l, int L)
     }
 }
 
-shared_ptr<Cellule> grille::getCellule(int x, int y){
-    return this->tableauCellules[x][y];
+std::shared_ptr<Cellule> grille::getCellule(int x, int y) const { 
+    return tableauCellules[x][y]; 
 }
 
 void grille::setCellule(int x, int y, bool e){
@@ -25,12 +25,12 @@ void grille::setCellule(int x, int y, bool e){
     
 }
 
-int grille::getHauteur() {
-    return tableauCellules.size();
+int grille::getHauteur() const { 
+    return tableauCellules.size(); 
 }
 
-int grille::getLargeur() {
-    return tableauCellules[0].size();
+int grille::getLargeur() const { 
+    return tableauCellules[0].size(); 
 }
 
 int grille::compterVoisinsVivants(int x, int y) {

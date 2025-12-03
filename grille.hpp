@@ -9,6 +9,7 @@ class grille
 private:
     vector<vector<shared_ptr<Cellule>>> tableauCellules;
 public:
+    grille() : tableauCellules(0) {}
     grille(int l, int L);
     shared_ptr<Cellule> getCellule(int x,int y);
     void setCellule(int x, int y, bool e);

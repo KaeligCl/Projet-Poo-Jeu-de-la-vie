@@ -3,40 +3,26 @@
 #include<string>
 #include <fstream>
 #include <iostream>
-using namespace std;
 
-Fichier::Fichier() : l(0), L(0) {}
+grille Fichier::lireFichier(const std::string& chemin){
+    std::ifstream fichier(chemin);
+    if (!fichier)
+        throw std::runtime_error("Impossible d'ouvrir le fichier");
 
-void Fichier::lireFichier(const string& chemin)
-{
-    //récupérer la largeur et longueur de la matrice
-     ifstream fichier(chemin); //prendra le chemin entré par l'utilisateur dans le main
-     if (fichier)
-     {
-         //pour vérifier que le fichier est ouvert
-         string ligne;
-         int largeur;
-         int longueur;
-         if (getline(fichier, ligne)) {
+    int hauteur, largeur;
+    fichier >> hauteur >> largeur;
 
-             stringstream ss(ligne);
-             ss >> largeur >> longueur;
+    grille g(hauteur, largeur);
 
-             //mettre 1er caractère sur la largeur et le second sur la longueur
-             this -> setL(largeur);
-             this -> setl(longueur);
-
-             cout << "Largeur de la matrice : " << this ->getL() << endl;
-             cout << "Longueur de la matrice : " << this-> getl() << endl;
-         }
-     }
-
-     else if (!fichier)
-     {
-         cout << "ERREUR : le fichier ne s'est pas ouvert" <<endl;
-     }
-
- }
-
- void Fichier::creerFichier() {
- }
+    for (int i = 0; i < hauteur; i++) {
+        for (int j = 0; j < largeur; j++) {
+            int valeur;
+            fichier >> valeur;
+            if (valeur == 1)
+                g.setCellule(i, j, std::make_shared<celluleVivante>());
+            else
+                g.setCellule(i, j, std::make_shared<celluleMorte>());
+        }
+    }
+    return g;
+}
