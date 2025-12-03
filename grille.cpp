@@ -18,3 +18,11 @@ shared_ptr<Cellule> grille::getCellule(int x, int y){
 void grille::setCellule(int x, int y, shared_ptr<Cellule> c){
     this->tableauCellules[x][y] = c;
 }
+
+int grille::getLargeur(){
+    return tableauCellules.size();
+}
+
+int grille::getLargeur(){
+    return tableauCellules[0].size();
+}

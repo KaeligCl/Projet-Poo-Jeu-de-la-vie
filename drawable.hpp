@@ -17,34 +17,35 @@ struct Pos {
 template <size_t Rows, size_t Cols>
 class Grid {
 private:
-    std::vector<std::vector<std::shared_ptr<Cellule>>> data;
+    grille data;
 
     float cellSize;
     float lineSize;
     Pos origin;
 
 public:
-    Grid(const std::array<std::array<int, Cols>, Rows>& table,
+    Grid(const grille& table,
          float cellSize = 20.f,
          float lineSize = 2.f,
          Pos origin = {50.f, 50.f})
         : cellSize(cellSize), lineSize(lineSize), origin(origin)
     {
-        data.resize(Rows, std::vector<std::shared_ptr<Cellule>>(Cols));
 
-        for (size_t i = 0; i < Rows; i++) {
-            for (size_t j = 0; j < Cols; j++) {
+        /* pour le fichier Files
+        for (size_t i = 0; i < table.getHauteur(); i++) {
+            for (size_t j = 0; j < table.getLargeur(); j++) {
                 if (table[i][j] == 1)
                     data[i][j] = std::make_shared<celluleVivante>();
                 else
                     data[i][j] = std::make_shared<celluleMorte>();
             }
         }
+        */
     }
 
     void draw(sf::RenderWindow& window) const {
-        for (size_t i = 0; i < Rows; i++) {
-            for (size_t j = 0; j < Cols; j++) {
+        for (size_t i = 0; i < table.getHauteur(); i++) {
+            for (size_t j = 0; j < table.getLargeur(); j++) {
 
                 float x = origin.x + j * (cellSize + lineSize);
                 float y = origin.y + i * (cellSize + lineSize);
@@ -70,12 +71,12 @@ public:
             }
         }
 
-        sf::RectangleShape borderVert({lineSize, Rows * (cellSize + lineSize)});
+        sf::RectangleShape borderVert({lineSize, table.getHauteur() * (cellSize + lineSize)});
         borderVert.setFillColor(sf::Color::Black);
         borderVert.setPosition(sf::Vector2f(origin.x + Cols * (cellSize + lineSize), origin.y));
         window.draw(borderVert);
 
-        sf::RectangleShape borderHor({Cols * (cellSize + lineSize), lineSize});
+        sf::RectangleShape borderHor({table.getLargeur() * (cellSize + lineSize), lineSize});
         borderHor.setFillColor(sf::Color::Black);
         borderHor.setPosition(sf::Vector2f(origin.x, origin.y + Rows * (cellSize + lineSize)));
         window.draw(borderHor);
