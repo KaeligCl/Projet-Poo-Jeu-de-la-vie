@@ -13,4 +13,6 @@ class Fichier{
     public :
         Fichier(){}
         grille lireFichier(const std::string& chemin);
+
+        void creerFichier();
 };
