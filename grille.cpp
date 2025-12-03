@@ -15,14 +15,8 @@ std::shared_ptr<Cellule> grille::getCellule(int x, int y) const {
     return tableauCellules[x][y]; 
 }
 
-void grille::setCellule(int x, int y, bool e){
-    if (this->e){
-        this->tableauCellules[x][y] = shared_ptr<Cellule>(new celluleVivante());
-    }
-    else {
-        this->tableauCellules[x][y] = shared_ptr<Cellule>(new celluleMorte());
-    }
-    
+void grille::setCellule(int x, int y, shared_ptr<Cellule> c) {
+    this->tableauCellules[x][y] = c;
 }
 
 int grille::getHauteur() const { 

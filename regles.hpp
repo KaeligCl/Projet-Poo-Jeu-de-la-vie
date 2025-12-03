@@ -18,8 +18,12 @@ public:
             {
                 int voisins = g.compterVoisinsVivants(x, y);
                 bool e = g.getCellule(x, y)->calculerEtatSuivant(voisins);
-                g.setCellule(x, y, e);
-
+                if (e){
+                    g.setCellule(x, y, std::make_shared<celluleVivante>() );
+                }
+                else{
+                    g.setCellule(x, y, std::make_shared<celluleMorte>() );
+                }
             }
 
         // Phase d’application
