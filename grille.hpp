@@ -12,6 +12,8 @@ public:
     grille(int l, int L);
     shared_ptr<Cellule> getCellule(int x,int y);
     void setCellule(int x, int y, shared_ptr<Cellule>);
+    int getHauteur();
+    int getLargeur();
 };
 
 
