@@ -23,6 +23,6 @@ int grille::getLargeur(){
     return tableauCellules.size();
 }
 
-int grille::getLargeur(){
+int grille::getHauteur(){
     return tableauCellules[0].size();
 }
