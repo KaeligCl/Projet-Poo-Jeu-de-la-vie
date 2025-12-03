@@ -7,10 +7,10 @@ using namespace std;
 
 Fichier::Fichier() : l(0), L(0) {}
 
-void Fichier::lireFichier()
+void Fichier::lireFichier(const string& chemin)
 {
     //récupérer la largeur et longueur de la matrice
-     ifstream fichier("C:/Users/lisac/OneDrive/Documents/CPIA2/Bloc 2 - Programmation Objet/Projet/fichierTest.txt");
+     ifstream fichier(chemin); //prendra le chemin entré par l'utilisateur dans le main
      if (fichier)
      {
          //pour vérifier que le fichier est ouvert
@@ -31,7 +31,7 @@ void Fichier::lireFichier()
          }
      }
 
-     else
+     else if (!fichier)
      {
          cout << "ERREUR : le fichier ne s'est pas ouvert" <<endl;
      }
