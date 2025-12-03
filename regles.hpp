@@ -18,7 +18,7 @@ public:
             {
                 int voisins = g.compterVoisinsVivants(x, y);
                 bool e = g.getCellule(x, y)->calculerEtatSuivant(voisins);
-                g.setCellule(x, y);
+                g.setCellule(x, y, e);
 
             }
 

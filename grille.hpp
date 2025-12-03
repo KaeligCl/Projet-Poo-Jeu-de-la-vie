@@ -11,13 +11,12 @@ private:
 public:
     grille() : tableauCellules(0) {}
     grille(int l, int L);
-    
-    void setCellule(int x, int y, shared_ptr<Cellule>);
+    shared_ptr<Cellule> getCellule(int x,int y);
+    void setCellule(int x, int y, bool e);
     int compterVoisinsVivants(int x, int y);
+    int getHauteur();
+    int getLargeur();
 
-    int getHauteur() const;
-    int getLargeur() const;
-    std::shared_ptr<Cellule> getCellule(int x,int y) const;
 };
 
 
