@@ -26,3 +26,21 @@ grille Fichier::lireFichier(const std::string& chemin){
     }
     return g;
 }
+
+void Fichier::creerFichier(const grille& g, const std::string& chemin)
+{
+    std::ofstream f(chemin);
+    int h = g.getHauteur();
+    int L = g.getLargeur();
+
+    f << h << " " << L << "\n";
+
+    for (int i = 0; i < h; i++)
+    {
+        for (int j = 0; j < L; j++)
+        {
+            f << (g.getCellule(i, j)->getEstVivant()? 1 : 0) << " ";
+        }
+        f << "\n";
+    }
+}
