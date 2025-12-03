@@ -6,8 +6,8 @@ using namespace std;
 class Fichier
 {
 private :
-    int l; //longueur
-    int L; //largeur
+    int l; // lignes 
+    int L; //colonnes
     vector<pair<int, int>> cellulesVivantes; //avoir les coordonnées des cellules vivantes parmi les 8 voisines
     vector<vector<int>> grille; //tableau de tableau dynamique pour stocker la grille sous forme de matrice
 
