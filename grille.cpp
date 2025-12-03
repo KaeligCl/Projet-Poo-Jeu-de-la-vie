@@ -15,8 +15,14 @@ shared_ptr<Cellule> grille::getCellule(int x, int y){
     return this->tableauCellules[x][y];
 }
 
-void grille::setCellule(int x, int y, shared_ptr<Cellule> c){
-    this->tableauCellules[x][y] = c;
+void grille::setCellule(int x, int y, bool e){
+    if (this->e){
+        this->tableauCellules[x][y] = shared_ptr<Cellule>(new celluleVivante());
+    }
+    else {
+        this->tableauCellules[x][y] = shared_ptr<Cellule>(new celluleMorte());
+    }
+    
 }
 
 int grille::getHauteur() {
@@ -25,4 +31,21 @@ int grille::getHauteur() {
 
 int grille::getLargeur() {
     return tableauCellules[0].size();
+}
+
+int grille::compterVoisinsVivants(int x, int y) {
+    int count = 0;
+    for (int i = -1; i <= 1; ++i) {
+        for (int j = -1; j <= 1; ++j) {
+            if (i == 0 && j == 0) continue;
+            int newX = x + i;
+            int newY = y + j;
+            if (newX >= 0 && newX < getHauteur() && newY >= 0 && newY < getLargeur()) {
+                if (getCellule(newX, newY)->getEstVivant()) {
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
 }

@@ -11,10 +11,11 @@ private:
 public:
     grille(int l, int L);
     shared_ptr<Cellule> getCellule(int x,int y);
-    void setCellule(int x, int y, shared_ptr<Cellule>);
+    void setCellule(int x, int y, bool e);
     int compterVoisinsVivants(int x, int y);
     int getHauteur();
     int getLargeur();
+
 };
 
 
