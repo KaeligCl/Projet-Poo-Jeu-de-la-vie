@@ -1,18 +1,16 @@
 #pragma once
-#include <utility>
-#include <vector>
-#include "grille.hpp"
-#include "celluleVivante.hpp"
-#include "celluleMorte.hpp"
+#include "grille.h"
+#include <string>
+#include "celluleVivante.h"
+#include "celluleMorte.h"
 
 
 class Fichier{
-    private :
-        grille data;
+private :
+    grille data;
 
-    public :
-        Fichier(){}
-        grille lireFichier(const std::string& chemin);
-
-        void creerFichier();
+public :
+    Fichier(){}
+    grille lireFichier(const std::string& chemin);
+    void creerFichier(const grille& g, const std::string& chemin);
 };
