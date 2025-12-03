@@ -7,6 +7,7 @@ protected:
 public :
     Cellule(bool vivant) : estVivant(vivant) {} 
     virtual bool getEstVivant() const = 0;
+    virtual bool calculerEtatSuivant(int c) = 0;
     virtual ~Cellule() {}
 };
 

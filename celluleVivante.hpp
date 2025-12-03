@@ -9,5 +9,6 @@ public:
     bool getEstVivant() const override {
         return this->estVivant;
     }
-};
 
+    bool calculerEtatSuivant(int c) override;
+};

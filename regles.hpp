@@ -17,8 +17,8 @@ public:
             for (int y = 0; y < LMax; ++y)
             {
                 int voisins = g.compterVoisinsVivants(x, y);
-                g.getCellule(x, y)->calculerEtatSuivant(voisins);
-                g.setCellule(x, y, )
+                bool e = g.getCellule(x, y)->calculerEtatSuivant(voisins);
+                g.setCellule(x, y);
 
             }
 
