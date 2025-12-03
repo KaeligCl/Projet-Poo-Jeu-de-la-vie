@@ -1,5 +1,6 @@
 #pragma once
 #include "cellule.hpp"
+#include <memory>
 #include <vector>
 using namespace std;
 
@@ -12,6 +13,7 @@ public:
     int getCellule(int x,int y);
     void setCellule(int x, int y);
 };
+
 
 
 
