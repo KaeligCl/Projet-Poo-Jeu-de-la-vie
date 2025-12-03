@@ -5,4 +5,8 @@ class celluleMorte : public Cellule
 {
 public:
     celluleMorte() : Cellule(false) {}
+    
+    bool getEstVivant() const override {
+        return this->estVivant;
+    }
 };

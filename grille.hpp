@@ -10,8 +10,8 @@ private:
     vector<vector<shared_ptr<Cellule>>> tableauCellules;
 public:
     grille(int l, int L);
-    int getCellule(int x,int y);
-    void setCellule(int x, int y);
+    shared_ptr<Cellule> getCellule(int x,int y);
+    void setCellule(int x, int y, shared_ptr<Cellule>);
 };
 
 
