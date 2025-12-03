@@ -25,12 +25,7 @@ public:
                     g.setCellule(x, y, std::make_shared<celluleMorte>() );
                 }
             }
-
-        // Phase d’application
-        for (int x = 0; x < lMax; ++x)
-            for (int y = 0; y < LMax; ++y)
-                g.getCellule(x, y)->appliquerNouvelEtat();
-
+// REGLER LE PROBLEME DE CREATION DE LA GRILLE ETAT SUIVANT 
         compteurIteration++;
     }
 };
