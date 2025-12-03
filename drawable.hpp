@@ -54,7 +54,7 @@ public:
                 cell.setPosition(sf::Vector2f(x + lineSize, y + lineSize));
 
                 cell.setFillColor(
-                    data[i][j]->getEstVivant() ? sf::Color::Green : sf::Color::Black
+                    data.getCellule(i, j)->getEstVivant() ? sf::Color::Green : sf::Color::Black
                 );
 
                 window.draw(cell);
@@ -73,12 +73,12 @@ public:
 
         sf::RectangleShape borderVert({lineSize, data.getHauteur() * (cellSize + lineSize)});
         borderVert.setFillColor(sf::Color::Black);
-        borderVert.setPosition(sf::Vector2f(origin.x + Cols * (cellSize + lineSize), origin.y));
+        borderVert.setPosition(sf::Vector2f(origin.x + data.getLargeur() * (cellSize + lineSize), origin.y));
         window.draw(borderVert);
 
         sf::RectangleShape borderHor({data.getLargeur() * (cellSize + lineSize), lineSize});
         borderHor.setFillColor(sf::Color::Black);
-        borderHor.setPosition(sf::Vector2f(origin.x, origin.y + Rows * (cellSize + lineSize)));
+        borderHor.setPosition(sf::Vector2f(origin.x, origin.y + data.getHauteur() * (cellSize + lineSize)));
         window.draw(borderHor);
     }
 };

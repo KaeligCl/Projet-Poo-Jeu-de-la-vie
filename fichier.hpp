@@ -18,7 +18,6 @@ public :
         getline(MyFile, rawData);
         MyFile.close();
 
-        for 
 
         for (size_t i = 0; i < data.getHauteur(); i++) {
             for (size_t j = 0; j < data.getLargeur(); j++) {
