@@ -28,7 +28,7 @@ public:
          float cellSize = 20.f,
          float lineSize = 2.f,
          Pos origin = {50.f, 50.f})
-        : cellSize(cellSize), lineSize(lineSize), origin(origin)
+        : data(table), cellSize(cellSize), lineSize(lineSize), origin(origin)
     {
 
         /* pour le fichier Files
@@ -44,8 +44,8 @@ public:
     }
 
     void draw(sf::RenderWindow& window) const {
-        for (size_t i = 0; i < table.getHauteur(); i++) {
-            for (size_t j = 0; j < table.getLargeur(); j++) {
+        for (size_t i = 0; i < data.getHauteur(); i++) {
+            for (size_t j = 0; j < data.getLargeur(); j++) {
 
                 float x = origin.x + j * (cellSize + lineSize);
                 float y = origin.y + i * (cellSize + lineSize);
@@ -71,12 +71,12 @@ public:
             }
         }
 
-        sf::RectangleShape borderVert({lineSize, table.getHauteur() * (cellSize + lineSize)});
+        sf::RectangleShape borderVert({lineSize, data.getHauteur() * (cellSize + lineSize)});
         borderVert.setFillColor(sf::Color::Black);
         borderVert.setPosition(sf::Vector2f(origin.x + Cols * (cellSize + lineSize), origin.y));
         window.draw(borderVert);
 
-        sf::RectangleShape borderHor({table.getLargeur() * (cellSize + lineSize), lineSize});
+        sf::RectangleShape borderHor({data.getLargeur() * (cellSize + lineSize), lineSize});
         borderHor.setFillColor(sf::Color::Black);
         borderHor.setPosition(sf::Vector2f(origin.x, origin.y + Rows * (cellSize + lineSize)));
         window.draw(borderHor);
