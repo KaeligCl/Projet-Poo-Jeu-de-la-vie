@@ -13,4 +13,8 @@ public:
     bool getObstacle() const override {
         return this->obstacle;
     }
+
+    bool calculerEtatSuivant(int c) override {
+        return true;
+    }
 };
