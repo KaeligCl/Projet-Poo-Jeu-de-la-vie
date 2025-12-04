@@ -1,5 +1,48 @@
-# Projet-Poo-Jeu-de-la-vie
+# Projet Jeu de la Vie 🎮
 
-Ce Projet est a l'issue d'un projet d'école en Programmation Orienter Objet.
+Le Jeu de la Vie est un automate cellulaire inventé par le mathématicien John Conway. Ce projet propose une implémentation en C++ du Jeu de la Vie en utilisant les concepts de la programmation orientée objet (POO). Dans ce jeu, une population de cellules, vivantes ou mortes, évolue sur une grille bidimensionnelle selon des règles simples :
 
-Le but est de créer un jeu de la vie en C++ avec la programmation orienter objet
+- Une cellule morte possédant exactement trois voisines vivantes devient vivante.
+- Une cellule vivante possédant deux ou trois voisines vivantes reste vivante, sinon elle meurt.
+
+## Fonctionnalités
+
+### Mode Console
+
+- **Affichage des États des Cellules** : Affiche les états des cellules pour un nombre d'itérations donné.
+- **Sortie Fichier** : Les résultats sont écrits dans des fichiers dans un dossier nommé `Fichier_test.txt`.
+
+### Mode Graphique
+
+- **Interface Graphique** : Affiche la grille de cellules dans une interface graphique basée sur la bibliothèque SFML.
+- **Contrôle de la Simulation** : La simulation démarre automatiquement avec un contrôle sur la durée entre deux itérations.
+
+## Extensions
+
+- **Grille Torique** : Les cellules des bords opposés de la grille sont considérées comme adjacentes.
+- **Cellules Obstacle** : Les cellules obstacles conservent leur état initial (vivant ou mort) tout au long de l'exécution.
+
+## Exemple d'Utilisation
+
+Pour compiler le programme :
+
+```bash
+g++ -o jeu_de_la_vie v02121342.cpp -lsfml-graphics -lsfml-window -lsfml-system
+```
+
+Pour lancer le programme :
+
+```bash
+./jeu_de_la_vie
+```
+
+## Captures d'Écran
+
+
+---
+
+1. [Fonctionnalités](#fonctionnalités)
+2. [Extensions](#extensions)
+3. [Exemple d'Utilisation](#exemple-dutilisation)
+4. [Captures d'Écran](#captures-décran)
+   
