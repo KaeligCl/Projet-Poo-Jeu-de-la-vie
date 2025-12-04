@@ -3,6 +3,8 @@
 #include <string>
 #include "celluleVivante.hpp"
 #include "celluleMorte.hpp"
+#include "obstacleMort.hpp"
+#include "obstacleVivant.hpp"
 
 
 class Fichier{
