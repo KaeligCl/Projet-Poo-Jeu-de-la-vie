@@ -1,3 +1,4 @@
+#pragma once
 #include "cellule.hpp"
 
 class obstacleMort : public Cellule
