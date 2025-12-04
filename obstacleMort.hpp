@@ -3,7 +3,7 @@
 class obstacleMort : public Cellule
 {
 public:
-    obstacleMort() : Cellule(true, true) {}
+    obstacleMort() : Cellule(false, true) {}
     
     bool getEstVivant() const override
     {
