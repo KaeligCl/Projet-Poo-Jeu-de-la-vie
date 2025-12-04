@@ -55,7 +55,6 @@ int main()
         sf::RenderWindow window(sf::VideoMode({800, 600}), "Grid Window");
     
         int iterationActuelle = 0;
-        Grid grilleAffichage(g);
         while (window.isOpen() && iterationActuelle < nbrMaxItération) {
             sf::Event event;
             while (window.pollEvent(event)) {
@@ -63,6 +62,7 @@ int main()
                     window.close();
             }
             window.clear(sf::Color::White);
+            Grid grilleAffichage(g);
             grilleAffichage.draw(window);
             window.display();
     
