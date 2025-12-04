@@ -16,13 +16,13 @@ struct Pos {
 
 class Grid {
 private:
-    grille data;
+    grille& data;
     float cellSize;
     float lineSize;
     Pos origin;
 
 public:
-    Grid(const grille& table, float cellSize = 20.f, float lineSize = 2.f, Pos origin = {50.f, 50.f})
+    Grid(grille& table, float cellSize = 20.f, float lineSize = 2.f, Pos origin = {50.f, 50.f})
         : data(table), cellSize(cellSize), lineSize(lineSize), origin(origin) {}
 
     void draw(sf::RenderWindow& window) const {
