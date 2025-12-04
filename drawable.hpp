@@ -1,40 +1,46 @@
 #pragma once
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <memory>
-#include "cellule.hpp"
-#include "celluleVivante.hpp"
-#include "celluleMorte.hpp"
-#include "grille.hpp"
+#include "cellule.h"
+#include "celluleVivante.h"
+#include "celluleMorte.h"
+#include "grille.h"
 
 static const sf::Color Grey(100, 100, 100);
 static const sf::Color Blue(0, 0, 255);
 
-struct Pos {
-    float x;
-    float y;
+struct Form
+{
+    float l, L;
 };
 
 class Grid {
 private:
     grille& data;
-    float cellSize;
+    Form cellSize;
     float lineSize;
-    Pos origin;
+    int windowWidth;
+    int windowHeight;
 
 public:
-    Grid(grille& table, float cellSize = 20.f, float lineSize = 2.f, Pos origin = {50.f, 50.f})
-        : data(table), cellSize(cellSize), lineSize(lineSize), origin(origin) {}
+    Grid(grille& table, int windowWidth, int windowHeight)
+        : data(table),windowWidth(windowWidth),windowHeight(windowHeight), cellSize({0,0}), lineSize(1.f) {}
 
-    void draw(sf::RenderWindow& window) const {
+    void draw(sf::RenderWindow& window) {
         int hauteur = data.getHauteur();
         int largeur = data.getLargeur();
 
+        float lineSize = 1.f;
+        cellSize.l = (windowWidth  - (largeur + 1) * lineSize) / largeur;
+        cellSize.L = (windowHeight - (hauteur + 1) * lineSize) / hauteur;
+
         for (int i = 0; i < hauteur; i++) {
             for (int j = 0; j < largeur; j++) {
-                float x = origin.x + j * (cellSize + lineSize);
-                float y = origin.y + i * (cellSize + lineSize);
+                float x = j * (cellSize.l + lineSize);
+                float y = i * (cellSize.L + lineSize);
 
-                sf::RectangleShape cell({cellSize, cellSize});
+                sf::RectangleShape cell({cellSize.l, cellSize.L});
                 cell.setPosition(sf::Vector2f(x + lineSize, y + lineSize));
 
                 if (data.getCellule(i, j)->getObstacle()){
@@ -45,12 +51,12 @@ public:
                 window.draw(cell);
 
                 // lignes
-                sf::RectangleShape vert({lineSize, cellSize + lineSize});
+                sf::RectangleShape vert({lineSize, cellSize.L + lineSize});
                 vert.setFillColor(sf::Color::Black);
                 vert.setPosition(sf::Vector2f(x, y));
                 window.draw(vert);
 
-                sf::RectangleShape hor({cellSize + lineSize, lineSize});
+                sf::RectangleShape hor({cellSize.l + lineSize, lineSize});
                 hor.setFillColor(sf::Color::Black);
                 hor.setPosition(sf::Vector2f(x, y));
                 window.draw(hor);
@@ -58,14 +64,14 @@ public:
         }
 
         // bordures finales
-        sf::RectangleShape borderVert({lineSize, hauteur * (cellSize + lineSize)});
+        sf::RectangleShape borderVert({lineSize, hauteur * (cellSize.L + lineSize)});
         borderVert.setFillColor(sf::Color::Black);
-        borderVert.setPosition(sf::Vector2f(origin.x + largeur * (cellSize + lineSize), origin.y));
+        borderVert.setPosition(sf::Vector2f(largeur * (cellSize.l + lineSize),0));
         window.draw(borderVert);
 
-        sf::RectangleShape borderHor({largeur * (cellSize + lineSize), lineSize});
+        sf::RectangleShape borderHor({largeur * (cellSize.l + lineSize), lineSize});
         borderHor.setFillColor(sf::Color::Black);
-        borderHor.setPosition(sf::Vector2f(origin.x, origin.y + hauteur * (cellSize + lineSize)));
+        borderHor.setPosition(sf::Vector2f(0, hauteur * (cellSize.L + lineSize)));
         window.draw(borderHor);
     }
 };
