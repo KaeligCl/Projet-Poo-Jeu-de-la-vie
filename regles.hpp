@@ -24,6 +24,7 @@ public:
             {
                 if (g.getCellule(x, y)->getObstacle()){
                     g2.setCellule(x, y, g.getCellule(x, y));
+                    continue;
                 }
                 int voisins = g.compterVoisinsVivants(x, y);
                 bool e = g.getCellule(x, y)->calculerEtatSuivant(voisins); //etat suivant
