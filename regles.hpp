@@ -22,6 +22,9 @@ public:
         for (int x = 0; x < lMax; ++x)
             for (int y = 0; y < LMax; ++y)
             {
+                if (g.getCellule(x, y)->getObstacle()){
+                    g2.setCellule(x, y, g.getCellule(x, y));
+                }
                 int voisins = g.compterVoisinsVivants(x, y);
                 bool e = g.getCellule(x, y)->calculerEtatSuivant(voisins); //etat suivant
                 if (e){
