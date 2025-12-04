@@ -37,10 +37,10 @@ public:
                 sf::RectangleShape cell({cellSize, cellSize});
                 cell.setPosition(sf::Vector2f(x + lineSize, y + lineSize));
 
-                if (g.getCellule(i, j)->getObstacle()){
-                    cell.setFillColor(g.getCellule(i, j)->getEstVivant() ? Blue : sf::Color::Black);
+                if (data.getCellule(i, j)->getObstacle()){
+                    cell.setFillColor(data.getCellule(i, j)->getEstVivant() ? Blue : sf::Color::Black);
                 } else {
-                    cell.setFillColor(g.getCellule(i, j)->getEstVivant() ? sf::Color::Green : Grey);
+                    cell.setFillColor(data.getCellule(i, j)->getEstVivant() ? sf::Color::Green : Grey);
                 }
                 window.draw(cell);
 
