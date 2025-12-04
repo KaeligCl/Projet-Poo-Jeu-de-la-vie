@@ -55,7 +55,12 @@ void Fichier::creerFichier(const grille& g, const std::string& chemin)
     {
         for (int j = 0; j < L; j++)
         {
-            f << (g.getCellule(i, j)->getEstVivant()? 1 : 0) << " ";
+            if (g.getCellule(i, j)->getObstacle()){
+                f << (g.getCellule(i, j)->getEstVivant()? 3 : 2) << " ";
+            }
+            else{
+                f << (g.getCellule(i, j)->getEstVivant()? 1 : 0) << " ";
+            }
         }
         f << "\n";
     }
