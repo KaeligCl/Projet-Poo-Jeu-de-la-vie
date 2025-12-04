@@ -2,10 +2,10 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <memory>
-#include "cellule.h"
-#include "celluleVivante.h"
-#include "celluleMorte.h"
-#include "grille.h"
+#include "cellule.hpp"
+#include "celluleVivante.hpp"
+#include "celluleMorte.hpp"
+#include "grille.hpp"
 
 static const sf::Color Grey(100, 100, 100);
 static const sf::Color Blue(0, 0, 255);
