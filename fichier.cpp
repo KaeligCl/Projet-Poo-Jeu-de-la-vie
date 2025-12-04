@@ -1,4 +1,6 @@
 #include "fichier.hpp"
+#include "obstacleMort.hpp"
+#include "obstacleVivant.hpp"
 #include <sstream>
 #include <string>
 #include <fstream>
