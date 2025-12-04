@@ -6,6 +6,8 @@
 #include "celluleMorte.hpp"
 #include "grille.hpp"
 
+sf::Color grey(128, 128, 128);
+
 struct Pos {
     float x;
     float y;
@@ -33,7 +35,7 @@ public:
 
                 sf::RectangleShape cell({cellSize, cellSize});
                 cell.setPosition(sf::Vector2f(x + lineSize, y + lineSize));
-                cell.setFillColor(data.getCellule(i,j)->getEstVivant() ? sf::Color::Green : sf::Color::Black);
+                cell.setFillColor(data.getCellule(i,j)->getEstVivant() ? sf::Color::Green : grey);
                 window.draw(cell);
 
                 // lignes

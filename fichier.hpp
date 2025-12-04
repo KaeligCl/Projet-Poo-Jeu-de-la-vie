@@ -1,8 +1,8 @@
 #pragma once
-#include "grille.h"
+#include "grille.hpp"
 #include <string>
-#include "celluleVivante.h"
-#include "celluleMorte.h"
+#include "celluleVivante.hpp"
+#include "celluleMorte.hpp"
 
 
 class Fichier{

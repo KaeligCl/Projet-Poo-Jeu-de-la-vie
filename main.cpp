@@ -1,7 +1,7 @@
-#include "fichier.h"
-#include "regle.h"
-#include "grille.h"
-#include "drawable.h"
+#include "fichier.hpp"
+#include "regles.hpp"
+#include "grille.hpp"
+#include "drawable.hpp"
 #include <SFML/Graphics.hpp>
 #include <filesystem>
 #include <iostream>
