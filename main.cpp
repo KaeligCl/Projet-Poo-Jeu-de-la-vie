@@ -53,38 +53,35 @@ int main()
         cout << "Vous avez choisi le mode interface graphique" << endl;
         grille g = f.lireFichier(chemin);
         sf::RenderWindow window(sf::VideoMode({800, 600}), "Grid Window");
+        Grid grilleAffichage(g);
 
         int iterationActuelle = 0;
         bool autoplay = false;
+
         while (window.isOpen()) {
             sf::Event event;
             while (window.pollEvent(event)) {
                 if (event.type == sf::Event::Closed)
                     window.close();
+                else if (event.type == sf::Event::KeyPressed) {
+                    if (event.key.code == sf::Keyboard::Space)
+                        autoplay = !autoplay;
+                    else if (event.key.code == sf::Keyboard::Left && iterationActuelle < nbrMaxItération) {
+                        r.etatSuivant(g);
+                        iterationActuelle++;
+                    }
+                }
             }
+
+            if (autoplay && iterationActuelle < nbrMaxItération) {
+                r.etatSuivant(g);
+                iterationActuelle++;
+                sf::sleep(sf::milliseconds(200));
+            }
+
             window.clear(sf::Color::White);
-
-            if (iterationActuelle < nbrMaxItération){
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-                    autoplay = !autoplay;
-                }
-
-                if (autoplay){
-                    r.etatSuivant(g);
-                    iterationActuelle++;
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-                    r.etatSuivant(g);
-                    iterationActuelle++;
-                }
-            }
-            
-                
-            
-            Grid grilleAffichage(g);
             grilleAffichage.draw(window);
             window.display();
-
-            sf::sleep(sf::milliseconds(200)); //delai entre 2 itérations
         }
     }
     return 0;
