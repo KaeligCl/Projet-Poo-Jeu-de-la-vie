@@ -1,5 +1,5 @@
 #include "fichier.hpp"
-#include "regle.hpp"
+#include "regles.hpp"
 #include "grille.hpp"
 #include "drawable.hpp"
 #include <SFML/Graphics.hpp>
