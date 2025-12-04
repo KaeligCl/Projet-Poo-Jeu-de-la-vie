@@ -11,8 +11,7 @@ public :
     virtual bool getObstacle() const = 0;
     virtual bool calculerEtatSuivant(int c) = 0;
     virtual ~Cellule() {}
-
-    virtual bool calculerEtatSuivant(int count) = 0;
 };
+
 
 
