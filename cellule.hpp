@@ -4,7 +4,7 @@ class Cellule
 {
 protected:
     const bool estVivant;
-    bool obstacle;
+    const bool obstacle;
 public :
     Cellule(bool vivant, bool obs) : estVivant(vivant), obstacle(obs) {} 
     virtual bool getEstVivant() const = 0;
