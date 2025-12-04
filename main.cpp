@@ -1,5 +1,5 @@
 #include "fichier.hpp"
-#include "regles.hpp"
+#include "regle.hpp"
 #include "grille.hpp"
 #include "drawable.hpp"
 #include <SFML/Graphics.hpp>
@@ -52,8 +52,10 @@ int main()
     {
         cout << "Vous avez choisi le mode interface graphique" << endl;
         grille g = f.lireFichier(chemin);
-        sf::RenderWindow window(sf::VideoMode({800, 600}), "Grid Window");
-        Grid grilleAffichage(g);
+        unsigned int windowWidth = 600;
+        unsigned int windowHeight = 800;
+        sf::RenderWindow window(sf::VideoMode({windowWidth, windowHeight}), "Grid Window");
+        Grid grilleAffichage(g, windowWidth, windowHeight);
 
         int iterationActuelle = 0;
         bool autoplay = false;
