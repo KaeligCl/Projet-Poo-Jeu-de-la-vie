@@ -18,6 +18,22 @@ grille Fichier::lireFichier(const std::string& chemin){
         for (int j = 0; j < largeur; j++) {
             int valeur;
             fichier >> valeur;
+            switch (valeur) {
+                case 0:
+                    g.setCellule(i, j, std::make_shared<celluleMorte>());
+                    break;
+            
+                case 1:
+                    g.setCellule(i, j, std::make_shared<celluleVivante>());
+                    break;
+                
+                case 2:
+                    g.setCellule(i, j, std::make_shared<obstacleMort>());
+                    break;
+                
+                case 3:
+                    g.setCellule(i, j, std::make_shared<obstacleVivant>());
+            }
             if (valeur == 1)
                 g.setCellule(i, j, std::make_shared<celluleVivante>());
             else
