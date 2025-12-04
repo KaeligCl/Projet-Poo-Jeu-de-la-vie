@@ -6,7 +6,7 @@
 #include "celluleMorte.hpp"
 #include "grille.hpp"
 
-static const sf::Color Grey(128, 128, 128);
+static const sf::Color Grey(100, 100, 100);
 static const sf::Color Blue(0, 0, 255);
 
 struct Pos {
