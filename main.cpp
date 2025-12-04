@@ -1,19 +1,25 @@
-#include "celluleMorte.hpp"
-#include "celluleVivante.hpp"
-#include "fichier.hpp"
-#include "grille.hpp"
-#include "drawable.hpp"
+#include "fichier.h"
+#include "regle.h"
+#include "grille.h"
+#include "drawable.h"
 #include <SFML/Graphics.hpp>
-#include <optional>
+#include <filesystem>
+#include <iostream>
+using namespace std;
 
-int main() {
-    /*Fichier f;
-    regle r;
+int main()
+{
+    Fichier f;
+    Regle r;
     cout << "Bienvenue dans le jeu de la vie"
     << "\nMettez le chemin d'acces de la matrice originelle (utilisez des /): " <<endl;
     string chemin;
     getline(cin, chemin);
-
+    
+    std::filesystem::path p(chemin);
+    std::string dossier = p.parent_path().string();
+    std::string base = p.stem().string();
+    
     cout << "Entrer un nombre maximum d'iterations : " << endl;
     int nbrMaxItération;
     cin >> nbrMaxItération;
@@ -22,47 +28,50 @@ int main() {
         cout << "Veuillez entrer un nombre superieur à deux iterations : " <<endl;
         cin >> nbrMaxItération;
     }
-
-
+    
     cout << "Mode de jeu choisi : mode console avec "
             "fichiers de sorties pour les premières iterations (1)" <<
                 "Avec interface graphique (2) : "  <<endl;
     int choixMode;
     cin >> choixMode;
-
+    
     if (choixMode == 1)
     {
         cout << "Vous avez choisi le mode console." << endl;
-        f.lireFichier(chemin);
+        grille g = f.lireFichier(chemin);
+    
+        for (int i = 0; i < nbrMaxItération; i++)
+        {
+            std::string sortie = dossier + "/" + base + "_" + std::to_string(i) + ".txt";
+            f.creerFichier(g, sortie);
+            r.etatSuivant(g);
+        }
     }
-
+    
     else if (choixMode == 2)
     {
         cout << "Vous avez choisi le mode interface graphique" << endl;
-        f.lireFichier(chemin);
-    }*/
-
-
-
-
+        grille g = f.lireFichier(chemin);
+        sf::RenderWindow window(sf::VideoMode({800, 600}), "Grid Window");
     
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Grid Window");
-
-    Fichier f;
-    grille g = f.lireFichier("monFichier.txt");
-
-    Grid grilleAffichage(g);
-
-    while (window.isOpen()) {
-        while (const std::optional<sf::Event> event = window.pollEvent()) {
-            if (event->is<sf::Event::Closed>())
-                window.close();
+        int iterationActuelle = 0;
+        Grid grilleAffichage(g);
+        while (window.isOpen() && iterationActuelle < nbrMaxItération) {
+            sf::Event event;
+            while (window.pollEvent(event)) {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+            }
+            window.clear(sf::Color::White);
+            grilleAffichage.draw(window);
+            window.display();
+    
+            r.etatSuivant(g);
+            iterationActuelle++;
+    
+            sf::sleep(sf::milliseconds(5000)); //delai entre 2 itérations
         }
-
-        window.clear(sf::Color::White);
-        grilleAffichage.draw(window);
-        window.display();
     }
-
     return 0;
+
 }
