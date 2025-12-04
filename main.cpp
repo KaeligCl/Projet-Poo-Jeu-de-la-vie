@@ -66,7 +66,7 @@ int main()
                 else if (event.type == sf::Event::KeyPressed) {
                     if (event.key.code == sf::Keyboard::Space)
                         autoplay = !autoplay;
-                    else if (event.key.code == sf::Keyboard::Left && iterationActuelle < nbrMaxItération) {
+                    else if (event.key.code == sf::Keyboard::Right && iterationActuelle < nbrMaxItération) {
                         r.etatSuivant(g);
                         iterationActuelle++;
                     }
