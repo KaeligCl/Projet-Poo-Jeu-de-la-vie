@@ -34,10 +34,16 @@ int grille::compterVoisinsVivants(int x, int y) {
             if (i == 0 && j == 0) continue;
             int newX = x + i;
             int newY = y + j;
-            if (newX >= 0 && newX < getHauteur() && newY >= 0 && newY < getLargeur()) {
-                if (getCellule(newX, newY)->getEstVivant()) {
-                    count++;
-                }
+
+            if (newX == -1 ) newX = getHauteur() - 1;
+            if (newX == getHauteur()) newX = 0;
+
+            if (newY == -1 ) newY = getLargeur() - 1;
+            if (newY == getLargeur()) newY = 0;
+
+
+            if (getCellule(newX, newY)->getEstVivant()) {
+                count++;
             }
         }
     }

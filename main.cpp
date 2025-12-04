@@ -55,6 +55,7 @@ int main()
         sf::RenderWindow window(sf::VideoMode({800, 600}), "Grid Window");
 
         int iterationActuelle = 0;
+        bool autoplay = false;
         while (window.isOpen()) {
             sf::Event event;
             while (window.pollEvent(event)) {
@@ -62,11 +63,23 @@ int main()
                     window.close();
             }
             window.clear(sf::Color::White);
-            if (iterationActuelle < nbrMaxItération)
-            {
-                r.etatSuivant(g);
-                iterationActuelle++;
+
+            if (iterationActuelle < nbrMaxItération){
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+                    autoplay = !autoplay;
+                }
+
+                if (autoplay){
+                    r.etatSuivant(g);
+                    iterationActuelle++;
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+                    r.etatSuivant(g);
+                    iterationActuelle++;
+                }
             }
+            
+                
+            
             Grid grilleAffichage(g);
             grilleAffichage.draw(window);
             window.display();
