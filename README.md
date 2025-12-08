@@ -36,13 +36,17 @@ Pour lancer le programme :
 ./jeu_de_la_vie
 ```
 
-## Captures d'Écran
+## Diagrammes :
+<img width="1461" height="795" alt="image" src="https://github.com/user-attachments/assets/bd15fd5d-5d01-4466-bf6f-353d0bc878b4" />
 
+<img width="788" height="1025" alt="image" src="https://github.com/user-attachments/assets/79200f11-dd09-4804-a68a-7bd35b41bae5" />
+
+<img width="697" height="1125" alt="image" src="https://github.com/user-attachments/assets/d26a8c40-8a19-4d6a-8579-d388159724c2" />
 
 ---
 
 1. [Fonctionnalités](#fonctionnalités)
 2. [Extensions](#extensions)
 3. [Exemple d'Utilisation](#exemple-dutilisation)
-4. [Captures d'Écran](#captures-décran)
+4. [Diagrammes](#captures-décran)
    
