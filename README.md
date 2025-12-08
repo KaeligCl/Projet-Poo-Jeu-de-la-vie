@@ -34,7 +34,11 @@ Le Jeu de la Vie est un automate cellulaire inventé par le mathématicien John 
 Pour compiler le programme :
 
 ```bash
-g++ -o jeu_de_la_vie v02121342.cpp -lsfml-graphics -lsfml-window -lsfml-system
+g++ -std=c++17 -I. \
+cellule.cpp celluleMorte.cpp celluleVivante.cpp fichier.cpp grille.cpp main.cpp obstacleMort.cpp obstacleVivant.cpp regles.cpp \
+-o Projet_Poo_Jeu_de_la_vie \
+-lsfml-graphics -lsfml-window -lsfml-system -lstdc++fs
+
 ```
 
 Pour lancer le programme :
