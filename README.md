@@ -1,3 +1,10 @@
+1. [Fonctionnalités](#fonctionnalités)
+2. [Extensions](#extensions)
+3. [Exemple d'Utilisation](#exemple-dutilisation)
+4. [Diagrammes](#Diagrammes)
+
+---
+
 # Projet Jeu de la Vie 🎮
 
 Le Jeu de la Vie est un automate cellulaire inventé par le mathématicien John Conway. Ce projet propose une implémentation en C++ du Jeu de la Vie en utilisant les concepts de la programmation orientée objet (POO). Dans ce jeu, une population de cellules, vivantes ou mortes, évolue sur une grille bidimensionnelle selon des règles simples :
@@ -47,9 +54,4 @@ Diagramme de Séquence
 <img width="697" height="1125" alt="image" src="https://github.com/user-attachments/assets/d26a8c40-8a19-4d6a-8579-d388159724c2" />
 
 ---
-
-1. [Fonctionnalités](#fonctionnalités)
-2. [Extensions](#extensions)
-3. [Exemple d'Utilisation](#exemple-dutilisation)
-4. [Diagrammes](#captures-décran)
    
